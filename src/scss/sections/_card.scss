@@ -8,6 +8,22 @@
   font-family: $font-style;
   color: $main-color;
 
+  @include tablet {
+    width: 800px;
+    gap: 20px;
+  }
+
+  @include mobile {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__box {
+    width: 380px;
+  }
+
   &__image {
     width: 505px;
     height: 330px;
