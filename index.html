@@ -12,7 +12,7 @@
 </head>
 <body>
     <!-- section with image, text and button -->
-    <section class="card">
+    <section class="card" onclick="toClose()">
         <img src="images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_ar_4_3,c_fill,g_auto__c_scale,w_538.jpg" 
         alt="ocean" class="card__image">
         <article class="card__box">
@@ -20,9 +20,14 @@
             <p class="card__text">Infinitely scalable, feature-rich and cloud-native data management and 
                 protection for modern and legacy infrastructures and SaaS platforms, managed via a single app with no hardware required.
             </p>
-            <button id="card__button">Button</button>
+            <button class="card_button" onclick="toOpen()" onclick="toCount()">Button</button>
+            <span class="card__popup" id="Popup">
+                <span class="card__popup--close" id="close" onClick="toClose()">x</span>
+                <h2 class="card__popup--title">Alert!</h2>
+                <p class="card__popup--text" id="area"></p>
+            </span>
         </article>
     </section>
     <!-- JavaScript code -->
-    <script src="js/main.js"></script>
+    <script src="src/js/main.js"></script>
 </body>

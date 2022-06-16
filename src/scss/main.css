@@ -546,13 +546,21 @@ textarea {
   border: 1px solid black;
 }
 
+@media screen and (max-width: 1024px) {
+  .card__popup {
+    width: 555px;
+    height: 180px;
+    padding: 50px 50px;
+  }
+}
+
 @media screen and (max-width: 792px) {
   .card__popup {
-    top: 713px;
+    top: 681px;
     left: 160px;
-    width: 300px;
+    width: 385px;
     height: 180px;
-    padding: 40px 95px;
+    padding: 50px 50px;
   }
 }
 

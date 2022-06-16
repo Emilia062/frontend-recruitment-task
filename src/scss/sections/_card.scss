@@ -22,6 +22,13 @@
 
   &__box {
     width: 380px;
+
+    @include mobile {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+    }
   }
 
   &__image {
@@ -42,4 +49,57 @@
     line-height: 24px;
     margin-bottom: 32px;
   }
+
+  // Popup
+  &__popup {
+    visibility: hidden;
+    font-family: $font-style;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 260px;
+    top: 375px;
+    width: 920px;
+    height: 210px;
+    padding: 56px 95px;
+    z-index: 1;
+    border: 1px solid black;
+
+    @include tablet {
+      width: 555px;
+      height: 180px;
+      padding: 50px 50px;
+    }
+
+    @include mobile {
+      top: 681px;
+      left: 160px;
+      width: 385px;
+      height: 180px;
+      padding: 50px 50px;
+    }
+
+    &--close {
+      align-self: flex-end;
+      font-size: 20px;
+    }
+
+    &--title {
+      font-size: 42px;
+      font-weight: 700;
+      line-height: 50.4px;
+      margin-bottom: 24px;
+    }
+
+    &--text {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 24px;
+    }
+  }
+}
+
+.show {
+  visibility: visible;
 }

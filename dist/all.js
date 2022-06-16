@@ -1,0 +1,1 @@
+const popup=document.getElementById("Popup");let clickCount=0;const toOpen=()=>{popup.classList.toggle("show");const t=document.getElementById("area");clickCount+=1,t.innerText=`You have clicked ${clickCount} times to related button.`,saveClickNumberToLocalStorage(clickCount)},toClose=()=>{};
