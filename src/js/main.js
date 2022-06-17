@@ -1,43 +1,47 @@
+const article = document.getElementById("section");
 const popup = document.getElementById("Popup");
+const reset = document.getElementById("restart");
 
-// const data = []
-
-// const saveClickNumberToLocalStorage = (newObject) => {
-//     let dataFromLocalStorage =[];
-//     if(localStorage.getItem("clickCount") !== null){
-//         dataFromLocalStorage = JSON.parse(localStorage.getItem("clickCount"));
-//         dataFromLocalStorage.push(newObject);
-//         localStorage.setItem("clickCount", JSON.stringify(dataFromLocalStorage));
-//     } else {
-//         dataFromLocalStorage.push(newObject);
-//         localStorage.setItem("clickCount", JSON.stringify(dataFromLocalStorage));
-//     }
-//     console.log(dataFromLocalStorage);
-//     alert("Added click");
-// }
-
-
-
-// const getClickNumberFromLocalStorage = () => {
-//     if(localStorage.getItem("clickCount") !== null) {
-//         const area = document.getElementById("area");
-//         area.innerText = `You have clicked ${localStorage.getItem("clickCount")} times to related button.`
-//     }
-// }
-
-// function for counting clicks and to show the popup
-let clickCount = 0;
+// function for counting clicks and showing the popup
+let clicksCounter = 0;
 const toOpen = () => {
     popup.classList.toggle("show");
+    section.classList.toggle("background");
+    
+    clicksCounter +=1;                                                              //to add one click to the counter
+    localStorage.setItem("numberOfClicks",clicksCounter);                           //to save numbers of clicks
+    
     const area = document.getElementById("area");
-    clickCount +=1;
-    area.innerText = `You have clicked ${clickCount} times to related button.`
+    area.innerText = `You have clicked ${localStorage.getItem("numberOfClicks")} times to related button.`;
 
-    saveClickNumberToLocalStorage(clickCount);
-}
-
-   
+    if (localStorage.getItem("numberOfClicks") < 5){
+        reset.classList.remove("active");
+    } else {
+        reset.classList.add("active");
+    }
+console.log(clicksCounter)
+;
+console.log(localStorage.getItem("numberOfClicks"));   
+}  
 
 const toClose = () => {
-    // popup.classList.toggle("show");
+    popup.classList.remove("show");
+    article.classList.remove("background");
+}
+ console.log(clicksCounter)
+
+
+//function for restarting the counter
+const toRestart = () => {
+    let error = document.getElementById("error");
+    console.log(`restart clicks: ${clicksCounter}`)
+    if (localStorage.getItem("numberOfClicks") < 5){
+        error.innerText = "Restart button available from 5 clicks";         //information for the user how the restart works
+    } else {
+        clicksCounter = 0;                                                  //to clear the counter
+        localStorage.clear();                                               //to clear localStorage
+        error.innerText = "";                                               //to clear error
+        popup.classList.toggle("show");
+        article.classList.toggle("background");
+    }
 }

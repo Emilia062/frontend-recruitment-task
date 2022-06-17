@@ -50,6 +50,13 @@
     margin-bottom: 32px;
   }
 
+  &__button {
+    &--restart {
+      align-self: flex-end;
+      background-color: beige;
+    }
+  }
+
   // Popup
   &__popup {
     visibility: hidden;
@@ -63,8 +70,8 @@
     width: 920px;
     height: 210px;
     padding: 56px 95px;
-    z-index: 1;
-    border: 1px solid black;
+    z-index: 2;
+
 
     @include tablet {
       width: 555px;
@@ -96,10 +103,32 @@
       font-size: 16px;
       font-weight: 600;
       line-height: 24px;
+      margin-bottom: 24px;
+    }
+
+    &--error {
+      font-size: 14px;
+      color: $primary-1;
+      font-weight: 600;
+      align-self: flex-end;
+      margin-bottom: 24px;
     }
   }
 }
 
 .show {
   visibility: visible;
+}
+
+.active {
+  box-shadow: 5px 0 10px #655A54;
+  background-color: $primary-1;
+}
+
+.background {
+  width:100%;
+  height: 100%;
+  z-index: 1;
+  background-color: #12121210;
+  opacity: 0.5;
 }
