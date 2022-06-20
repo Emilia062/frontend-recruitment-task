@@ -10,9 +10,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
     <title>[Emilia] [Kieglerska] - Recruitment task</title>
 </head>
-<body id="section">
+<body>
     <!-- section with image, text and button -->
-    <section class="card">
+    <section class="card" >
         <img src="images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_ar_4_3,c_fill,g_auto__c_scale,w_538.jpg" 
         alt="ocean" class="card__image">
         <article class="card__box">
@@ -20,15 +20,17 @@
             <p class="card__text">Infinitely scalable, feature-rich and cloud-native data management and 
                 protection for modern and legacy infrastructures and SaaS platforms, managed via a single app with no hardware required.
             </p>
-            <button class="card_button" onclick="toOpen()">Button</button>
-            <!-- popup -->
-            <span class="card__popup" id="Popup">
-                <span class="card__popup--close" id="close" onclick="toClose()">x</span>
-                <h2 class="card__popup--title">Alert!</h2>
-                <p class="card__popup--text" id="area"></p>
-                <div  class="card__popup--error" id="error"></div>
-                <button class="card__button--restart" id="restart" onclick="toRestart()">Restart</button>
-            </span>
+            <button class="card_button" onclick="toOpen(event)">Button</button>
+            <!-- pop up -->
+            <div id="overlay" onclick="toClose(event)">
+                <span class="card__popup" id="Popup">
+                    <span class="card__popup--close" id="close" >x</span>
+                    <h2 class="card__popup--title">Alert!</h2>
+                    <p class="card__popup--text" id="area"></p>
+                    <p  class="card__popup--error" id="error"></p>
+                    <button class="card__button--restart" id="restart" onclick="toRestart()">Restart</button>
+                </span>
+            </div>
         </article>
     </section>
     <!-- JavaScript code -->
